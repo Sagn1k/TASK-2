@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 mat = 10,10
-image = cv2.imread("test_images/test_image3.jpg")
+image = cv2.imread("test_image3.jpg")
 occupied_grids = []
 objects={}
 (x,y,z) = image.shape
