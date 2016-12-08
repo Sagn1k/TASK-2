@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 mat = 10,10
-image = cv2.imread("test_image3.jpg")
+image = cv2.imread("test_images/test_image3.jpg")
 occupied_grids = []
 objects={}
 (x,y,z) = image.shape
@@ -58,11 +58,21 @@ for i in range (10):
                         board_shape[position]="4-sided"
                     elif len(approx) > 7:
                         board_shape[position]="Circle"
-                                        break
-                                else :
-                                        board_shape[position]="none"
+                        break
+                    else :
+                        board_shape[position]="none"
                         position=position+1
-
-
-        #print board_shape
+ #print board_shape
+             gray=cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
+             ret,thresh = cv2.threshold(gray,127,255,1)
+             contours,h = cv2.findContours(thresh,1,2)
+             cnt=contours[0]
+             if (B<10 and G<10 and R>200):
+                 colour="red"
+             if (B<10 and R<10 and G>200):
+                 colour="green"
+             if (G<10 and R<10 and B>200):
+                 colour="blue"
+             if (B<10 and R>200 and G>200):
+                 colour="yellow"
 print occupied_grids
